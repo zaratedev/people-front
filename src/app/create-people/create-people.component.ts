@@ -44,9 +44,10 @@ export class CreatePeopleComponent {
       return response.json();
     })
     .then(data => {
-      console.log(data);
       if (data && data.errors !== undefined) {
         this.errors = Object.values(data.errors).flat();
+      } else {
+        window.location.href = '/listado';
       }
     })
     .catch((error) => {
